@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-const URL =
-  "mongodb+srv://rohitraj05072000:tOCNsMW9pRjwFL2x@cluster1.v38ys.mongodb.net/e-commerce";
-// const URL = "mongodb://localhost:27017/users";
+const mongoURL = process.env.MONGODB_URL;
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(URL);
+    const conn = await mongoose.connect(mongoURL);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (err) {
     console.log(err);
