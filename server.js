@@ -2,7 +2,7 @@ const http = require("http");
 const express = require("express");
 const mongoose = require("mongoose"); // Ensure mongoose is used for DB connection
 const app = express();
-const connectDB = require("./db");
+const connectDB = require("./config/db");
 const menuRoutes = require("./routes/menuRoutes");
 const personRoutes = require("./routes/personRoutes");
 
