@@ -5,8 +5,10 @@ const app = express();
 const connectDB = require("./config/db");
 const menuRoutes = require("./routes/menuRoutes");
 const personRoutes = require("./routes/personRoutes");
+require("dotenv").config();
 
-const port = 3000;
+const URL = process.env.MONGO_URL;
+const PORT = process.env.PORT || 3000;
 
 // Middleware to parse JSON
 app.use(express.json());
@@ -18,6 +20,6 @@ app.use("/person", personRoutes);
 app.use("/menu", menuRoutes);
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
