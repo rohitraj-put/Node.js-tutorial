@@ -13,6 +13,15 @@ const PersonSchema = new mongoose.Schema({
     type: String,
     enum: ["Web Developer", "Software Engineer", "Student"],
   },
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
 });
 
-module.exports = mongoose.model("DataRohit", PersonSchema);
+module.exports = mongoose.model("user", PersonSchema);

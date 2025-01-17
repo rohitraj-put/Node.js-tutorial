@@ -56,7 +56,7 @@ router.delete("/:id", async (req, res) => {
     if (!deletedPerson) {
       return res.status(404).json({ error: "Person not found" });
     }
-    res.status(200).json({ Message: "Person deleted successfully" });
+    res.status(200).json({ Message: "Person deleted successfully" }); 
   } catch (err) {
     console.error("Error deleting person:", err);
     res.status(500).json({ error: "Internal Server Error" });
