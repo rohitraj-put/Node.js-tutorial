@@ -5,10 +5,7 @@ const app = express();
 const connectDB = require("./config/db");
 const menuRoutes = require("./routes/menuRoutes");
 const personRoutes = require("./routes/personRoutes");
-
 const passport = require("./Middlewares/auth");
-
-require("dotenv").config();
 
 require("dotenv").config();
 
