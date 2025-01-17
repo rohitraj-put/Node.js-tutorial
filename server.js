@@ -5,7 +5,10 @@ const app = express();
 const connectDB = require("./config/db");
 const menuRoutes = require("./routes/menuRoutes");
 const personRoutes = require("./routes/personRoutes");
+
 const passport = require("./Middlewares/auth");
+
+require("dotenv").config();
 
 require("dotenv").config();
 
@@ -26,10 +29,8 @@ app.use(logRequest);
 connectDB();
 
 const localAuthMiddleware = passport.authenticate("local", { session: false });
-app.use("/", localAuthMiddleware, (req, res) => {
-  res.send("Welcome to the Restaurant API");
-});
-app.use("/person", personRoutes);
+
+app.use("/person", localAuthMiddleware, personRoutes);
 app.use("/menu", menuRoutes);
 
 // Start the server

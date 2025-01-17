@@ -9,7 +9,7 @@ passport.use(
       if (!user) {
         return done(null, false, { message: "Invalid username" });
       }
-      const isPasswordValid = user.password === password ? true : false;
+      const isPasswordValid = await user.comparePassword(password);
       if (isPasswordValid) {
         return done(null, user);
       } else {
