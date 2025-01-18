@@ -27,7 +27,7 @@ connectDB();
 
 const localAuthMiddleware = passport.authenticate("local", { session: false });
 
-app.use("/person", localAuthMiddleware, personRoutes);
+app.use("/person", personRoutes);
 app.use("/menu", menuRoutes);
 
 // Start the server
